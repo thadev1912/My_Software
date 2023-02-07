@@ -9,7 +9,7 @@ Tài khoản đăng nhập : tài khoản:sieuga ||pass:123 (có nhiều quyền
 
 
 			***********************************
- 			FIX LỖI SERVE_ERROR SAU SAU KHI
+ 			FIX LỖI SERVE_ERROR SAU CLONE VỀ LOCAL
 			**********************************
 
 

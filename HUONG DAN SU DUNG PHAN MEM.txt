@@ -4,6 +4,7 @@
 Tên Database: nhansu_db
 Username :root
 Pass :''
+Notice: Đổi đảm bảo chạy tốt API, ajax => ta đổi tên thư mục clone về là :Quanlynhansu ( xin lỗi về chưa kiểm duyệt code trước khi push)
 Tài khoản đăng nhập : tài khoản:sieuga ||pass:123 (có nhiều quyền) => có thể vào mục phân quyền để phân lại
                       tài khoản:tha    ||pass:123 ( hạn chế truy cập)
 

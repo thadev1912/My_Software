@@ -20,7 +20,7 @@
 <div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
                    <div class="col">
                         <label>Tên Chức Vụ</label>
-                        <input id="new-pass-control" name="txt_ten_pb" class="form-control" type="text" value="{!! $data->ten_cv!!}">
+                        <input id="new-pass-control" name="txt_ten_cv" class="form-control" type="text" value="{!! $data->ten_cv!!}">
                                 
                     </div>
 </div>

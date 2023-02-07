@@ -9,7 +9,7 @@ class ChucvuController extends Controller
 {
     public function chucvu()
         {
-            $chucvu=DB::table('chucvu')->paginate(3);        
+            $chucvu=DB::table('chucvu')->paginate(5);        
             return view('chucvu.chucvu',compact('chucvu'));
             
         }
@@ -36,8 +36,8 @@ class ChucvuController extends Controller
              {
                 DB::table('chucvu')->where('id',$id)->update(
                     [
-                        'ma_cv'=>$request->txt_ma_pb,
-                        'ten_cv'=>$request->txt_ten_pb,
+                        'ma_cv'=>$request->txt_ma_cv,
+                        'ten_cv'=>$request->txt_ten_cv,
 
                     ]);
                     return redirect()->route('chucvu')->with('thongbao','Đã cập nhật Phòng Ban thành công!!!');

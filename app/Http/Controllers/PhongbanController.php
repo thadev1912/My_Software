@@ -9,7 +9,7 @@ class PhongbanController extends Controller
 {
     public function phongban()
         {
-            $phongban=DB::table('phongban')->paginate(3);        
+            $phongban=DB::table('phongban')->paginate(5);        
             return view('phongban.phongban',compact('phongban'));
             
         }
@@ -48,6 +48,23 @@ class PhongbanController extends Controller
                      return redirect()->route('phongban')->with('thongbao','Đã xóa phòng ban thành công!!!');
                       
                }
+               public function hasmany()
+                {
+                    $data=Phongban::all();
+                    foreach ($data as $dt)
+                       {
+                        dd($dt);
+                        echo $dt->ten_pb;
+                        echo "<br>";
+                        foreach($dt->phongban as $info)
+                           {
+                            echo $info->hoten_nv;
+                            echo "<br>";
+                           }
+                        echo "<hr>";
+                       }
+
+                }
 
 }
 

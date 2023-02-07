@@ -22,10 +22,12 @@
                                          </tr >
                                            <th align="center">STT</th>
                                            <th align="center">MÃ HỢP ĐỒNG</th>
-                                           <th align="center">MÃ NHÂN VIÊN</th>
-                                           <th align="center">TÊN NHÂN VIÊN</th>
-                                           <th align="center">HỆ SỐ LƯƠNG</th>
-                                           <th align="center">NGÀY VÀO LÀM</th>
+                                           <th align="center">MÃ NV</th>
+                                           <th align="center">HỌ TÊN NHÂN VIÊN</th>
+                                           <th align="center">TÌNH TRẠNG</th>
+                                           <th align="center">lOẠI HỢP ĐỒNG</th>
+                                           <th align="center">LƯƠNG CB</th>
+                                           <th align="center">NGÀY VÀO</th>
                                            <th align="center">TÙY CHỈNH</th>
                                           </tr>
                                      </thread>
@@ -37,12 +39,14 @@
                                         <td>{{$hd->ma_hd}}</td>
                                         <td>{{$hd->ma_nv}}</td>
                                         <td>{{$hd->hoten_nv}}</td>
+                                        <td>{{$hd->tinhtrang}}</td>
+                                        <td>{{$hd->loai_hd}}</td>
                                         <td>{{$hd->heso_luong}}</td>
                                         <td>{{$hd->ngayvao}}</td>
                                         <td class="td-actions">
-                        <a href="{!! URL ::Route('sua_hd',$hd->id)!!}" class="  btn btn-primary"><i class="btn-icon-only icon-edit">Sửa</i></a>
+                        <a href="{!! URL ::Route('sua_hd',$hd->ma_nv)!!}" class="  btn-xs btn-primary"><i class="btn-icon-only icon-edit">Sửa</i></a>
 
-                        <a href="{!! URL ::Route('xoa_hd',$hd->id)!!}" class="  btn btn-danger">
+                        <a href="{!! URL ::Route('xoa_hd',$hd->ma_nv)!!}" class="  btn-xs btn-danger">
                             <i class="btn-icon-only icon-remove">Xóa</i>
                         </a>
                     </td>

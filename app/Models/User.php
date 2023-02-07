@@ -1,12 +1,12 @@
 <?php
-
-namespace App\Models;
-
+  namespace  App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
+
+//use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -19,8 +19,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'hoten',
         'email',
         'password',
+        'api_token',
     ];
 
     /**
@@ -41,4 +43,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+   public function hasPermission($route)
+      {
+        $routes=$this->routes();
+        //dd(in_array($route,$routes)); xác nhận mã rotue trong mạng đã okay!!!       
+        return in_array($route,$routes) ? true :false;
+         
+      }
+    public function routes()
+       {
+        //$route=$this->getPermissions();
+      
+        $route=[];     
+        foreach($this->getPermissions as $info)
+         {
+           $data=json_decode($info->permissions);
+           foreach($data as $dt)
+           {
+            if(!in_array($dt,$route))
+              {
+                array_push($route,$dt);
+              }
+          
+           }
+         }
+         //return ['nhanvien','phongban','chucvu'];
+         //dd($route);
+         return $route;
+       }
+    public function getPermissions()
+       {
+           return $this->belongsToMany(Role_Permission::class,'role_user','name','role_name');
+        
+       }
+     
+
+      
 }

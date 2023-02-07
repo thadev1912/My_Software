@@ -8,13 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!--đăng ký token tại trang meta-->
     <title>HR-Software</title>
 
     <!-- Custom fonts for this template-->
-    <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css') }}">
-          <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="{{asset('/css/bootstrap1.min.css') }}"> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+    <link href="{{asset('js/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -33,123 +38,220 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Danh Mục</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-left" href="index.html">
+                
+                <div class="sidebar-brand-text mx-3 bg-text-info">HR SOFTWARE</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
+           
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{!!URL::route('nhanvien')!!}" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Quản Lý Nhân Viên</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{!!URL::route('baohiem')!!}" data-toggle="collapse" data-target="#collapseUtilities"
+              <!-- Nav Item - Utilities Collapse Menu -->
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Quản Lý Bảo Hiểm</span>
+                    <i class="fas fa-address-card"></i>
+                    <span>Quản Lý Nhân Viên</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('ds_nhanvien')!!}">Danh Sách Nhân Viên</a>
+                        <a class="collapse-item" href="{!!URL::route('nhanvien')!!}"> Điều Chỉnh Nhân Viên</a>
+                        
+                    </div>
+                </div>
+            </li>
+             <!-- Nav Item - Quản Lý Hợp Đồng -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    <i class="fas fa-file-signature"></i>
+                    <span>Quản Lý Hợp Đồng</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('hopdong')!!}">Thông Kê Hợp Đồng
+                        </a>
+                        
+                    </div>
+                </div>
+            </li>
+            
+              <!-- Nav Item - Quản Lý Bảo Hiểm -->
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="false" aria-controls="collapseFour">
+                    <i class="fas fa-book-medical"></i>
+                    <span>Quản Lý Bảo Hiểm</span>
+                </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('baohiem')!!}">Thông Kê Bảo Hiểm</a>
+                       
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Quản Lý Phép Năm -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="false" aria-controls="collapseFive">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Quản Lý Phép Năm</span>
+                </a>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('phepnam')!!}">Thông Kê Phép Năm
+                        </a>
+                        
+                    </div>
+                </div>
+            </li>
+             <!-- Nav Item - Phép năm -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('getform')!!}" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-wifi"></i>
+                    <span>Quản Lý Chấm Công</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('getform')!!}">Tải Chấm Công</a>
+                        <a class="collapse-item" href="{!!URL::route('dulieu_chamcong')!!}">Dữ liệu Chấm Công</a>
+                        <a class="collapse-item" href="{!!URL::route('bangluong')!!}">Thông Kê Bảng Lương</a>
+                    </div>
+                </div>
+            </li>
+             <!-- Nav Item - Phép năm -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('nhapkho')!!}" data-toggle="collapse" data-target="#collapseTwentyOne"
+                    aria-expanded="true" aria-controls="collapseTwentyOne">
+                    <i class="fas fa-wifi"></i>
+                    <span>Quản Lý Kho Hàng</span>
+                </a>
+                <div id="collapseTwentyOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('nhapkho')!!}">Tạo Phiếu Nhập Kho</a>
+                       
                     </div>
                 </div>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+          
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
+          
 
+           
+
+              <!-- Nav Item - Quản Lý Tổng Hợp -->
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="false" aria-controls="collapseSix">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Quản Lý Chung</span>
+                </a>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('phongban')!!}">Danh Mục Phòng Ban</a>
+                        <a class="collapse-item" href="{!!URL::route('chucvu')!!}">Danh Mục Chức Vụ</a>
+                        <a class="collapse-item" href="{!!URL::route('khenthuong')!!}">Danh Mục Khen Thưởng</a>
+                        <a class="collapse-item" href="{!!URL::route('kyluat')!!}">Danh Mục Kỷ Luật</a>
+                    </div>
+                </div>
+            </li>
+             <!-- Nav Item - Shop Mobile -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseSeven"
+                    aria-expanded="false" aria-controls="collapseSeven">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Shop Online</span>
+                </a>
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('shop')!!}">Shop Online</a>
+                        <a class="collapse-item" href="{!!URL::route('giohang')!!}">Giỏ Hàng</a>
+                        <a class="collapse-item" href="{!!URL::route('donhang')!!}">Đơn Hàng</a>
+                       
+                        
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Phân Quyền -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{!!URL::route('bangluong')!!}" data-toggle="collapse" data-target="#collapseEight"
+                    aria-expanded="false" aria-controls="collapseEight">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Phân Quyền</span>
+                </a>
+                <div id="collapseEight" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('list_user')!!}">Danh Sách Phân Quyền</a>
+                        <a class="collapse-item" href="{!!URL::route('role')!!}">Danh Sách Nhóm Quyền</a>
+                        
+                       
+                        
+                    </div>
+                </div>
+            </li>
+             <!-- Nav Item - Phân Quyền -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseNine"
+                    aria-expanded="false" aria-controls="collapseNine">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Kết nối API</span>
+                </a>
+                <div id="collapseNine" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="{!!URL::route('ketnoiapi')!!}">Quản Trị Api Cara_River</a>
+                        <a class="collapse-item" href="{!!URL::route('mypost')!!}">Dữ Liệu Hệ Thống Api</a>
+                        
+                       
+                        
+                    </div>
+                </div>
+            </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Hệ Thống</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        
+                        <a class="collapse-item" href="{{URL::route('dangnhap')}}">Đăng nhập</a>
+                        <a class="collapse-item" href="{{URL::route('dangky')}}">Đăng Ký</a>
+                        <a class="collapse-item" href="">Quên mật khẩu</a>
                         <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+          
+      
+          
 
         </ul>
         <!-- End of Sidebar -->
@@ -168,19 +270,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm kiếm..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                   
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -221,7 +311,7 @@
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
-                                    Alerts Center
+                                    Tin nhắn
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
@@ -230,8 +320,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <div class="small text-gray-500">Ngày 24/12/2019</div>
+                                        <span class="font-weight-bold">Báo cáo số lượng nhân sự tháng mới</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -241,8 +331,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
+                                        <div class="small text-gray-500">Ngày 20/7/2019</div>
+                                        Báo cáo quản lý chấm công!!!
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -252,7 +342,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        <div class="small text-gray-500">Ngày 12/5/2019</div>
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
@@ -329,32 +419,41 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                        @if(Auth::check())
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="{{URL::route('thoat')}}" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                Chào <strong>{{Auth::user()->name}}</strong>
+                                   
+                                </span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
+                                    src="images/{{Auth::user()->avatar}}"> 
+                                  
+                                    </a>
+                                  
+                                    
+                            
+                            @endif
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Hồ sơ
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Thiết lập
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Hoạt động đăng nhập
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{URL ::route('thoat')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Thoát
                                 </a>
                             </div>
                         </li>
@@ -367,12 +466,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Danh Mục</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Biểu mẫu</a>
-                    </div>
+                   
 
                     <!-- Content Row -->
                     <div class="row">
@@ -419,7 +513,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-md font-weight-bold text-info text-uppercase mb-1">QUẢN LÝ KHO
+                                            <div class="text-md font-weight-bold text-info text-uppercase mb-1">QUẢN LÝ BÁN HÀNG
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -445,7 +539,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-md font-weight-bold text-warning text-uppercase mb-1">
-                                                BÁO CÁO</div>
+                                                PHÂN QUYỀN</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
@@ -464,6 +558,7 @@
 
                 <!-- SRART RENDER BODY-->
                 @yield('main_body')
+                @yield('javascript')
 
                  <!-- SRART RENDER BODY-->
 
@@ -494,40 +589,31 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn thoát?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Lựa chọn "Thoát" nếu bạn muốn kết thúc phiên làm việc.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy Bỏ</button>
+                    <a class="btn btn-primary" href="{{URL::route('thoat')}}">Thoát</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('js/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('/css/main.js') }}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{ asset('/js/Chart.js') }}"></script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('/js/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('/js/chart-pie-demo.js') }}"></script>
-
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    
 
 </body>
 

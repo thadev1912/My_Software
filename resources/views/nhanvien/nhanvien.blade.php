@@ -12,7 +12,20 @@
                      </div>
 </div>
 </br>
-<div> <a href="{!! URL::route('them_nv')!!}" class=" btn btn-primary"><i class="btn-icon-only icon-edit">Thêm mới</i></a> <br></div> 
+
+<div>
+<div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
+<div class="col-lg-3">
+   <form class="form-inline" action="{!! route('timkiem')!!}" method="GET">
+             <input class="form-control mr-1 font-italic" type="search" name="timkiem" placeholder="Tìm theo tên" aria-label="Search">
+             <button class="btn btn-danger" type="submit"><i class="fa fa-search" style="width:18px; font-size:18px;"></i></button>
+  </form>
+</div>
+<div class="col-lg-3">
+    <a href="{!! URL::route('them_nv')!!}" class=" btn btn-primary"><i class="btn-icon-only icon-edit">Thêm mới</i></a>
+</div>
+</div>
+<br>
                    <div class="card-body">
                   
                    @if(Session::has('thongbao'))

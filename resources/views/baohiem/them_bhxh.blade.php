@@ -19,14 +19,14 @@
             <div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
                     <div class="col">
                         <label>MÃ BẢO HIỂM XÃ HỘI</label>
-                        <input id="current-pass-control" name="txt_ma_bhxh" class="form-control" type="text" value="">
+                        <input id="current-pass-control" name="txt_ma_bhxh" class="form-control" type="text" value="{!! old('txt_ma_bhxh') !!}">
                             @error('txt_ma_bhxh')
                              <span class="text-danger">{{$message}}</span>
                             @enderror    
                     </div>
                    <div class="col">
                         <label>MÃ NHÂN VIÊN</label>
-                        <input id="new-pass-control" name="txt_ma_nv" class="form-control" type="text" value="">
+                        <input id="new-pass-control" name="txt_ma_nv" class="form-control" type="text" value="{!! old('txt_ma_nv') !!}">
                         @error('txt_ma_nv')
                              <span class="text-danger">{{$message}}</span>
                             @enderror    
@@ -36,14 +36,14 @@
 <div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
 <div class="col">
                         <label>NGÀY CẤP</label>
-                        <input id="new-pass-control" name="txt_ngaycap" class="form-control" type="text" value="">
+                        <input id="new-pass-control" name="txt_ngaycap" class="form-control" type="date" value="{!! old('txt_ngaycap') !!}">
                         @error('txt_ngaycap')
                              <span class="text-danger">{{$message}}</span>
                             @enderror    
                     </div>                  
 <div class="col">
                         <label>NGÀY HẾT HẠN</label>
-                        <input id="current-pass-control" name="txt_ngayhethan" class="form-control" type="text" value="">
+                        <input id="current-pass-control" name="txt_ngayhethan" class="form-control" type="date" value="{!! old('txt_ngayhethan') !!}">
                         @error('txt_ngayhethan')
                              <span class="text-danger">{{$message}}</span>
                             @enderror    

@@ -9,7 +9,7 @@ class BaohiemController extends Controller
 {
     public function baohiem()
      {
-        $baohiem=DB::table('baohiem')->paginate(3);
+        $baohiem=DB::table('baohiem')->paginate(5);
         return view('baohiem.baohiem',compact('baohiem'));
      }
      public function them_bhxh()
@@ -54,6 +54,7 @@ class BaohiemController extends Controller
             $data=DB::table('baohiem')->where('id',$id)->first();
             return view('baohiem.sua_bhxh',compact('data'));
             
+            
          }
          public function capnhat_bhxh($id,Request $request)
          {
@@ -73,4 +74,12 @@ class BaohiemController extends Controller
                 DB::table('baohiem')->where('id',$id)->delete();
                 return redirect()->route('baohiem')->with('thongbao','Đã xóa thông tin thành công!!!');
             }
+            public function chitiet_bhxh($ma_nv)
+             {
+              $data=DB::table('baohiem')
+              ->join('nhanvien','baohiem.ma_nv','=','nhanvien.ma_nv')
+              ->where('baohiem.ma_nv',$ma_nv)->first();
+              return view('baohiem.chitiet_bhxh',compact('data'));
+             }
+             
 }

@@ -8,7 +8,7 @@
                                   </div>
                     
                      </div>
-            <form action="{!! URL::route('capnhat_hd',$data->id)!!}" method="POST">
+            <form action="{!! URL::route('capnhat_hd',$data->ma_nv)!!}" method="POST">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}" />
             <div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
                     <div class="col">
@@ -22,10 +22,23 @@
                               
                     </div>
 </div>
+<div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
+<div class="col">
+                        <label>TÌNH TRẠNG NHÂN VIÊN</label>
+                        <input id="current-pass-control" name="txt_tinhtrang" class="form-control" type="text" value="{!!$data->tinhtrang!!}">       
+                    </div>                  
+<div class="col">
+                        <label>THỜI HẠN HỢP ĐỒNG</label>
+                        <input id="current-pass-control" name="txt_loai_hd" class="form-control" type="text" value="{!!$data->loai_hd!!}">
+                                
+                    </div>
+                 
+</div>
+
 
 <div class="form-row"> <!--thuộc tính form-row nó giúp chia 2 cột trên 1 row của nó-->
 <div class="col">
-<label>NGÀY VÀO LÀM</label>
+                        <label>NGÀY VÀO LÀM</label>
                         <input id="current-pass-control" name="txt_ngayvao" class="form-control" type="text" value="{!!$data->ngayvao!!}">       
                     </div>                  
 <div class="col">

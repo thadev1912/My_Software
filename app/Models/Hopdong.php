@@ -10,7 +10,8 @@ class Hopdong extends Model
     protected $table='hopdong';
     protected $filltable=[
         'id',
-        'md_hd',
+         'ma_nv',
+        'ma_hd',
         'ma_cv',
         'ma_pb',
         'heso_luong',

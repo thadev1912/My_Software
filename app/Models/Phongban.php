@@ -15,4 +15,8 @@ class Phongban extends Model
 
     ];
     use HasFactory;
+   public function phongban()
+     {
+        return $this->hasMany(Nhanvien::class,'ma_pb','ma_pb');
+     }
 }
